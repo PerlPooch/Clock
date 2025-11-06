@@ -1,8 +1,8 @@
 # Hardware
 
-You can power Clock via the NodeMCU micro-USB port, but it is preferred to provide power via the on board connector or terminal J1. Driving the LEDs brighter than 50% when powered via the micro-USB connector may damage the NodeMCU.
+You can power Clock via the NodeMCU micro-USB port, but it is preferable to provide +5V power via the on-board connector or terminal J1. Driving the LEDs brighter than 50% when powered via the micro-USB connector may damage the NodeMCU.
 
-A ring of 60 WS2812B LEDs are connected to J5 or J2 (but not both). Pin 1 is ground, Pin 2 is data, Pin 3 is +5.
+A ring of 60 WS2812B LEDs are connected to J5 or J2 (but not both). Pin 1 is ground, Pin 2 is data, Pin 3 is +5. See [[RGB Clock Controller/Schematic.pdf][The Schematic]] for details. 
 
 Dual connectors J3 are provided for an optional small OLED display. Select the header that matches the orientation of the display.
 
@@ -10,7 +10,9 @@ Dual connectors J3 are provided for an optional small OLED display. Select the h
 
 ## Wifi Configuration
 
-If there is no configuration present or Clock is powered-on with the button depressed, Clock enters WiFi configuratoin mode. In this mode, Clock will create an access point with the SSID `Clock xx:xx:xx:xx:xx:xx`. Join this AP with the password `12345678` and you will be presented with menus through which you can select and join a real AP.
+If there is no configuration present or Clock is powered-on with button (SW3) depressed, Clock enters WiFi configuration mode.
+
+In this mode, Clock will create a WiFi access point with the SSID `Clock xx:xx:xx:xx:xx:xx`. Join this AP with the password `12345678` and you will be presented with menus through which you can select and join an Internet-connected AP.
 
 Once configured, Clock will reboot.
 
@@ -38,7 +40,7 @@ You can reach Clock via HTTP at its address. If you don't know the address that 
 
 Making a GET request to / will return a JSON payload of the current configuration. 
 
-    http://clockip/
+    http://<clockip>/
 
 | Field                | Meaning / Range                                                              |
 | :------------------- | :--------------------------------------------------------------------------- |
@@ -81,6 +83,10 @@ For example, to set the dim intensity and bright intensity for both daytime and 
 
 ## OTA Firmware Update
 
-    GET http://clockip/_ac/update
+    GET http://<clockip>/_ac/update
+
+## WiFi Configuration Changes
+
+    GET http://<clockip>/_ac/
 
 
