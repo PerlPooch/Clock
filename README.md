@@ -89,4 +89,38 @@ For example, to set the dim intensity and bright intensity for both daytime and 
 
     GET http://<clockip>/_ac/
 
+# Building
+
+Clock is based on the (now old) NodeMCU 12E ESP8266 board. 
+
+## Libraries
+
+The Arduino community is great, offering many useful libraries to build upon. This project requires:
+
+* SPI
+* Wire
+* Adafruit GFX Library
+* Adafruit SSD1306
+* arduino-timer
+* ArduinoJson
+* ESP8266WiFi
+* ESP8266WebServer
+* AutoConnect
+* LittleFS
+* ESP8266HTTPClient
+* NeoPixelBus by Makuna
+* NTPClient
+
+These Libraries, in turn, require:
+
+* Adafruit BusIO
+* DNSServer
+* EEPROM
+* PageBuilder
+* SD
+* SDFS
+* ESP8266SdFat
+* Ticker
+* ESP8266httpUpdate
+
 
